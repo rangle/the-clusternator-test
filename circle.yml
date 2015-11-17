@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - npm install -g clusternator
+
+test:
+  post:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - docker build -t rafkhan/hello-world .
+    - docker push rafkhan/hello-world
+    - "if ! [ -z \"$CIRCLE_PR_NUMBER\" ]; then clusternator circleci:push -h 54.174.177.145 -a appdef.json -t $(clusternator circleci:tag); fi"

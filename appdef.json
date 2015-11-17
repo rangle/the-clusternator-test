@@ -1,0 +1,25 @@
+{
+  "name": "YOUR-APP-NAME",
+  "tasks": [
+    {
+      "containerDefinitions": [
+        {
+          "volumesFrom": [],
+          "portMappings": [],
+          "command": [],
+          "environment": [],
+          "essential": true,
+          "entryPoint": [],
+          "links": [],
+          "mountPoints": [],
+          "memory": 256,
+          "name": "CONTAINER",
+          "cpu": 256,
+          "image": "rafkhan/hello-world"
+        }
+      ],
+      "volumes": [],
+      "family": "YOUR-TASK-NAME"
+    }
+  ]
+}
